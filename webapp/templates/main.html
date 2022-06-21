@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Guess 4 numbers. Enter them separated with spaces:</p>
+    <form method="POST" action="/post/">
+        {% csrf_token %}
+        <input type="text" name="numbers"/>
+        <input type="submit" value="Send"/>
+    <div>
+        {% if game_result %}
+            <h2>{{ game_result }}</h2>
+        {% elif error_message %}
+            <h2>{{ error_message }}</h2>
+        {% endif %}
+    </div>
+    <a href="/history/">Game history</a>
+    </form>
+
+</body>
+</html>
